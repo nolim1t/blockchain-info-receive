@@ -1,0 +1,29 @@
+service: aws-nodejs # NOTE: update this with your service name
+provider:
+  name: aws
+  runtime: nodejs4.3
+  stage: dev
+  region: us-east-1
+  profile: perceptionz
+  environment:
+    CALLBACKSECRET: apisecret
+    BLOCKCHAINAPIKEY: apikeyforblockchaininfo
+    XPUBKEY: xpubkey
+
+# you can add packaging information here
+#package:
+#  include:
+#    - include-me.js
+#    - include-me-dir/**
+#  exclude:
+#    - exclude-me.js
+#    - exclude-me-dir/**
+
+functions:
+  blockchainreceive:
+    handler: handler.blockchaininforeceive
+    events:
+        - http:
+            path: /receive-coins
+            method: get
+            cors: true
