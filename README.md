@@ -9,6 +9,10 @@ There is two parts to it:
 * Set up and Derive the receiving address (POST API) from your XPUB (You need to change "callback_url" to your AWS Lambda address)
 * Receive the callback when payment is made
 
+## Prerequisites
+
+* You need a blockchain info API key
+
 ## Setup
 
 * Copy serverless.yml.dist to serverless.yml
